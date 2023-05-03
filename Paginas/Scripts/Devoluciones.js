@@ -18,7 +18,7 @@ $(document).ready(function () {
         ConsultarVentas();
     });
 
-    //Invocar el llenado del combo
+    //Elimine esto
     LlenarSedesDevoluciones();
     llenarVendedorDevoluciones();
     llenarPrendaDevoluciones();
@@ -70,7 +70,6 @@ function EjecutarComando(Comando) {
     let VendedorDevolucion = $("#VendedorDevolucion").val();
     let SedeDevolucion = $("#SedeDevolucion").val();
     let MotivoDevolucion = $("#lblMotivoDevolucion").val();
-    let validaDevolucion = false;
     //////////////////////////
 
     let idVenta = $("#CodigoVenta").val();
