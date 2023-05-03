@@ -47,6 +47,7 @@ function ConsultarVentas() {
             $("#NombreCliente").val(Venta.tblCliente.NombreCliente);
             $("#DocumentoCliente").val(Venta.tblCliente.idCliente);
             $("#PrendaDevolucion").val(Venta.idPrendaVenta);
+            //Inserta al LocalStorage la cantidad de prendas vendidas.
             localStorage.setItem('cantidadPrendas', Venta.cantidad);
             Fecha = Venta.fechaVenta;
             $("#FechaVenta").val(Fecha.split("T")[0])
