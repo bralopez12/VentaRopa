@@ -70,9 +70,8 @@ function EjecutarComando(Comando) {
     let VendedorDevolucion = $("#VendedorDevolucion").val();
     let SedeDevolucion = $("#SedeDevolucion").val();
     let MotivoDevolucion = $("#lblMotivoDevolucion").val();
-    let validaDevolucion = false;
-    //////////////////////////
-
+    //TE BORRE ESTOS SLSS
+    //TE ESTOY AGREGANDO MAS CAMBIOS
     let idVenta = $("#CodigoVenta").val();
     DatosVenta = {
         idVenta: idVenta,
