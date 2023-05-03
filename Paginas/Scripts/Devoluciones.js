@@ -26,6 +26,8 @@ $(document).ready(function () {
     LlenarTablaDevoluciones();
 });
 
+
+//Creamos un Consultar Ventas
 function ConsultarVentas() {
     event.preventDefault();
     let idVenta = $("#CodigoVenta").val();
