@@ -1,0 +1,1063 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBVentaRopaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tblAdministrador">
+          <Key>
+            <PropertyRef Name="idAdministrador" />
+          </Key>
+          <Property Name="idAdministrador" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NombreAdministrador" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fechaNacimientoAdministrador" Type="date" Nullable="false" />
+          <Property Name="TelefonoAdministrador" Type="bigint" Nullable="false" />
+          <Property Name="EmailAdministrador" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TipoDocumentoAdministrador" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCajero">
+          <Key>
+            <PropertyRef Name="idCajero" />
+          </Key>
+          <Property Name="idCajero" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NombreCajero" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fechaCajero" Type="date" Nullable="false" />
+          <Property Name="TelefonoCajero" Type="bigint" Nullable="false" />
+          <Property Name="EmailCajero" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TipoDocumentoCajero" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCiudad">
+          <Key>
+            <PropertyRef Name="idCiudad" />
+          </Key>
+          <Property Name="idCiudad" Type="int" Nullable="false" />
+          <Property Name="idDepartamentoCiudad" Type="int" Nullable="false" />
+          <Property Name="NombreCiudad" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NombreCliente" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fechaNacimientoCliente" Type="date" Nullable="false" />
+          <Property Name="TelefonoCliente" Type="bigint" Nullable="false" />
+          <Property Name="EmailCliente" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TipoDocumentoCliente" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblDepartamento">
+          <Key>
+            <PropertyRef Name="idDepartamento" />
+          </Key>
+          <Property Name="idDepartamento" Type="int" Nullable="false" />
+          <Property Name="nombreDepartamento" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblDevoluciones">
+          <Key>
+            <PropertyRef Name="idDevolucion" />
+          </Key>
+          <Property Name="idDevolucion" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="idVentaDevolucion" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="motivoDevolucion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fechaDevolucion" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblMarca">
+          <Key>
+            <PropertyRef Name="idMarca" />
+          </Key>
+          <Property Name="idMarca" Type="int" Nullable="false" />
+          <Property Name="nombreMarca" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblMetodoPago">
+          <Key>
+            <PropertyRef Name="idMetodoPago" />
+          </Key>
+          <Property Name="idMetodoPago" Type="int" Nullable="false" />
+          <Property Name="MetodoPago" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPrenda">
+          <Key>
+            <PropertyRef Name="idPrenda" />
+          </Key>
+          <Property Name="idPrenda" Type="int" Nullable="false" />
+          <Property Name="idMarcaPrenda" Type="int" Nullable="false" />
+          <Property Name="idTallaPrenda" Type="int" Nullable="false" />
+          <Property Name="precio" Type="float" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="NombrePrenda" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblProveedor">
+          <Key>
+            <PropertyRef Name="idProveedor" />
+          </Key>
+          <Property Name="idProveedor" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NombreProveedor" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelefonoProveedor" Type="bigint" Nullable="false" />
+          <Property Name="EmailProveedor" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DireccionProveedor" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idPrendaProveedor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblSede">
+          <Key>
+            <PropertyRef Name="idSede" />
+          </Key>
+          <Property Name="idSede" Type="int" Nullable="false" />
+          <Property Name="NombreSede" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="idCiudadSede" Type="int" Nullable="false" />
+          <Property Name="telefono" Type="bigint" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblTalla">
+          <Key>
+            <PropertyRef Name="idTalla" />
+          </Key>
+          <Property Name="idTalla" Type="int" Nullable="false" />
+          <Property Name="nombreTalla" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblTipoDocumen">
+          <Key>
+            <PropertyRef Name="idTipoDocumento" />
+          </Key>
+          <Property Name="idTipoDocumento" Type="int" Nullable="false" />
+          <Property Name="nombreDocumento" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblVendedor">
+          <Key>
+            <PropertyRef Name="idVendedor" />
+          </Key>
+          <Property Name="idVendedor" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NombreVendedor" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fechaNacimientoVendedor" Type="date" Nullable="false" />
+          <Property Name="TelefonoVendedor" Type="bigint" Nullable="false" />
+          <Property Name="EmailVendedor" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TipoDocumentoVendedor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblVenta">
+          <Key>
+            <PropertyRef Name="idVenta" />
+          </Key>
+          <Property Name="idVenta" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="idPrendaVenta" Type="int" Nullable="false" />
+          <Property Name="idClienteVenta" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="idVendedorVenta" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="idMetodoPagoVenta" Type="int" Nullable="false" />
+          <Property Name="idSedeVenta" Type="int" Nullable="false" />
+          <Property Name="fechaVenta" Type="date" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="totalVenta" Type="float" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tblAdministrador_tblTipoDocumen">
+          <End Role="tblTipoDocumen" Type="Self.tblTipoDocumen" Multiplicity="1" />
+          <End Role="tblAdministrador" Type="Self.tblAdministrador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTipoDocumen">
+              <PropertyRef Name="idTipoDocumento" />
+            </Principal>
+            <Dependent Role="tblAdministrador">
+              <PropertyRef Name="TipoDocumentoAdministrador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCajero_tblTipoDocumen">
+          <End Role="tblTipoDocumen" Type="Self.tblTipoDocumen" Multiplicity="1" />
+          <End Role="tblCajero" Type="Self.tblCajero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTipoDocumen">
+              <PropertyRef Name="idTipoDocumento" />
+            </Principal>
+            <Dependent Role="tblCajero">
+              <PropertyRef Name="TipoDocumentoCajero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCiudad_tblDepartamento">
+          <End Role="tblDepartamento" Type="Self.tblDepartamento" Multiplicity="1" />
+          <End Role="tblCiudad" Type="Self.tblCiudad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDepartamento">
+              <PropertyRef Name="idDepartamento" />
+            </Principal>
+            <Dependent Role="tblCiudad">
+              <PropertyRef Name="idDepartamentoCiudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCliente_tblTipoDocumen">
+          <End Role="tblTipoDocumen" Type="Self.tblTipoDocumen" Multiplicity="1" />
+          <End Role="tblCliente" Type="Self.tblCliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTipoDocumen">
+              <PropertyRef Name="idTipoDocumento" />
+            </Principal>
+            <Dependent Role="tblCliente">
+              <PropertyRef Name="TipoDocumentoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblDevoluciones_tblVenta">
+          <End Role="tblVenta" Type="Self.tblVenta" Multiplicity="1" />
+          <End Role="tblDevoluciones" Type="Self.tblDevoluciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblVenta">
+              <PropertyRef Name="idVenta" />
+            </Principal>
+            <Dependent Role="tblDevoluciones">
+              <PropertyRef Name="idVentaDevolucion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPrenda_tblMarca1">
+          <End Role="tblMarca" Type="Self.tblMarca" Multiplicity="1" />
+          <End Role="tblPrenda" Type="Self.tblPrenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMarca">
+              <PropertyRef Name="idMarca" />
+            </Principal>
+            <Dependent Role="tblPrenda">
+              <PropertyRef Name="idMarcaPrenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPrenda_tblTalla">
+          <End Role="tblTalla" Type="Self.tblTalla" Multiplicity="1" />
+          <End Role="tblPrenda" Type="Self.tblPrenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTalla">
+              <PropertyRef Name="idTalla" />
+            </Principal>
+            <Dependent Role="tblPrenda">
+              <PropertyRef Name="idTallaPrenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProveedor_tblPrenda">
+          <End Role="tblPrenda" Type="Self.tblPrenda" Multiplicity="1" />
+          <End Role="tblProveedor" Type="Self.tblProveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPrenda">
+              <PropertyRef Name="idPrenda" />
+            </Principal>
+            <Dependent Role="tblProveedor">
+              <PropertyRef Name="idPrendaProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSede_tblCiudad">
+          <End Role="tblCiudad" Type="Self.tblCiudad" Multiplicity="1" />
+          <End Role="tblSede" Type="Self.tblSede" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCiudad">
+              <PropertyRef Name="idCiudad" />
+            </Principal>
+            <Dependent Role="tblSede">
+              <PropertyRef Name="idCiudadSede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblVendedor_tblTipoDocumen">
+          <End Role="tblTipoDocumen" Type="Self.tblTipoDocumen" Multiplicity="1" />
+          <End Role="tblVendedor" Type="Self.tblVendedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTipoDocumen">
+              <PropertyRef Name="idTipoDocumento" />
+            </Principal>
+            <Dependent Role="tblVendedor">
+              <PropertyRef Name="TipoDocumentoVendedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblVenta_tblCliente">
+          <End Role="tblCliente" Type="Self.tblCliente" Multiplicity="1" />
+          <End Role="tblVenta" Type="Self.tblVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="tblVenta">
+              <PropertyRef Name="idClienteVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblVenta_tblMetodoPago">
+          <End Role="tblMetodoPago" Type="Self.tblMetodoPago" Multiplicity="1" />
+          <End Role="tblVenta" Type="Self.tblVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMetodoPago">
+              <PropertyRef Name="idMetodoPago" />
+            </Principal>
+            <Dependent Role="tblVenta">
+              <PropertyRef Name="idMetodoPagoVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblVenta_tblPrenda">
+          <End Role="tblPrenda" Type="Self.tblPrenda" Multiplicity="1" />
+          <End Role="tblVenta" Type="Self.tblVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPrenda">
+              <PropertyRef Name="idPrenda" />
+            </Principal>
+            <Dependent Role="tblVenta">
+              <PropertyRef Name="idPrendaVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblVenta_tblSede">
+          <End Role="tblSede" Type="Self.tblSede" Multiplicity="1" />
+          <End Role="tblVenta" Type="Self.tblVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSede">
+              <PropertyRef Name="idSede" />
+            </Principal>
+            <Dependent Role="tblVenta">
+              <PropertyRef Name="idSedeVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblVenta_tblVendedor">
+          <End Role="tblVendedor" Type="Self.tblVendedor" Multiplicity="1" />
+          <End Role="tblVenta" Type="Self.tblVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblVendedor">
+              <PropertyRef Name="idVendedor" />
+            </Principal>
+            <Dependent Role="tblVenta">
+              <PropertyRef Name="idVendedorVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBVentaRopaModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAdministrador" EntityType="Self.tblAdministrador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCajero" EntityType="Self.tblCajero" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCiudad" EntityType="Self.tblCiudad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCliente" EntityType="Self.tblCliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDepartamento" EntityType="Self.tblDepartamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDevoluciones" EntityType="Self.tblDevoluciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMarca" EntityType="Self.tblMarca" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMetodoPago" EntityType="Self.tblMetodoPago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPrenda" EntityType="Self.tblPrenda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProveedor" EntityType="Self.tblProveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSede" EntityType="Self.tblSede" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTalla" EntityType="Self.tblTalla" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTipoDocumen" EntityType="Self.tblTipoDocumen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVendedor" EntityType="Self.tblVendedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVenta" EntityType="Self.tblVenta" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblAdministrador_tblTipoDocumen" Association="Self.FK_tblAdministrador_tblTipoDocumen">
+            <End Role="tblTipoDocumen" EntitySet="tblTipoDocumen" />
+            <End Role="tblAdministrador" EntitySet="tblAdministrador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCajero_tblTipoDocumen" Association="Self.FK_tblCajero_tblTipoDocumen">
+            <End Role="tblTipoDocumen" EntitySet="tblTipoDocumen" />
+            <End Role="tblCajero" EntitySet="tblCajero" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCiudad_tblDepartamento" Association="Self.FK_tblCiudad_tblDepartamento">
+            <End Role="tblDepartamento" EntitySet="tblDepartamento" />
+            <End Role="tblCiudad" EntitySet="tblCiudad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCliente_tblTipoDocumen" Association="Self.FK_tblCliente_tblTipoDocumen">
+            <End Role="tblTipoDocumen" EntitySet="tblTipoDocumen" />
+            <End Role="tblCliente" EntitySet="tblCliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblDevoluciones_tblVenta" Association="Self.FK_tblDevoluciones_tblVenta">
+            <End Role="tblVenta" EntitySet="tblVenta" />
+            <End Role="tblDevoluciones" EntitySet="tblDevoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPrenda_tblMarca1" Association="Self.FK_tblPrenda_tblMarca1">
+            <End Role="tblMarca" EntitySet="tblMarca" />
+            <End Role="tblPrenda" EntitySet="tblPrenda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPrenda_tblTalla" Association="Self.FK_tblPrenda_tblTalla">
+            <End Role="tblTalla" EntitySet="tblTalla" />
+            <End Role="tblPrenda" EntitySet="tblPrenda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProveedor_tblPrenda" Association="Self.FK_tblProveedor_tblPrenda">
+            <End Role="tblPrenda" EntitySet="tblPrenda" />
+            <End Role="tblProveedor" EntitySet="tblProveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSede_tblCiudad" Association="Self.FK_tblSede_tblCiudad">
+            <End Role="tblCiudad" EntitySet="tblCiudad" />
+            <End Role="tblSede" EntitySet="tblSede" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblVendedor_tblTipoDocumen" Association="Self.FK_tblVendedor_tblTipoDocumen">
+            <End Role="tblTipoDocumen" EntitySet="tblTipoDocumen" />
+            <End Role="tblVendedor" EntitySet="tblVendedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblVenta_tblCliente" Association="Self.FK_tblVenta_tblCliente">
+            <End Role="tblCliente" EntitySet="tblCliente" />
+            <End Role="tblVenta" EntitySet="tblVenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblVenta_tblMetodoPago" Association="Self.FK_tblVenta_tblMetodoPago">
+            <End Role="tblMetodoPago" EntitySet="tblMetodoPago" />
+            <End Role="tblVenta" EntitySet="tblVenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblVenta_tblPrenda" Association="Self.FK_tblVenta_tblPrenda">
+            <End Role="tblPrenda" EntitySet="tblPrenda" />
+            <End Role="tblVenta" EntitySet="tblVenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblVenta_tblSede" Association="Self.FK_tblVenta_tblSede">
+            <End Role="tblSede" EntitySet="tblSede" />
+            <End Role="tblVenta" EntitySet="tblVenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblVenta_tblVendedor" Association="Self.FK_tblVenta_tblVendedor">
+            <End Role="tblVendedor" EntitySet="tblVendedor" />
+            <End Role="tblVenta" EntitySet="tblVenta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBVentaRopaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblAdministrador">
+          <Key>
+            <PropertyRef Name="idAdministrador" />
+          </Key>
+          <Property Name="idAdministrador" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreAdministrador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaNacimientoAdministrador" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TelefonoAdministrador" Type="Int64" Nullable="false" />
+          <Property Name="EmailAdministrador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TipoDocumentoAdministrador" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblTipoDocuman" Relationship="Self.FK_tblAdministrador_tblTipoDocumen" FromRole="tblAdministrador" ToRole="tblTipoDocumen" />
+        </EntityType>
+        <EntityType Name="tblCajero">
+          <Key>
+            <PropertyRef Name="idCajero" />
+          </Key>
+          <Property Name="idCajero" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreCajero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaCajero" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TelefonoCajero" Type="Int64" Nullable="false" />
+          <Property Name="EmailCajero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TipoDocumentoCajero" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblTipoDocuman" Relationship="Self.FK_tblCajero_tblTipoDocumen" FromRole="tblCajero" ToRole="tblTipoDocumen" />
+        </EntityType>
+        <EntityType Name="tblCiudad">
+          <Key>
+            <PropertyRef Name="idCiudad" />
+          </Key>
+          <Property Name="idCiudad" Type="Int32" Nullable="false" />
+          <Property Name="idDepartamentoCiudad" Type="Int32" Nullable="false" />
+          <Property Name="NombreCiudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblDepartamento" Relationship="Self.FK_tblCiudad_tblDepartamento" FromRole="tblCiudad" ToRole="tblDepartamento" />
+          <NavigationProperty Name="tblSedes" Relationship="Self.FK_tblSede_tblCiudad" FromRole="tblCiudad" ToRole="tblSede" />
+        </EntityType>
+        <EntityType Name="tblCliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaNacimientoCliente" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TelefonoCliente" Type="Int64" Nullable="false" />
+          <Property Name="EmailCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TipoDocumentoCliente" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblTipoDocuman" Relationship="Self.FK_tblCliente_tblTipoDocumen" FromRole="tblCliente" ToRole="tblTipoDocumen" />
+          <NavigationProperty Name="tblVentas" Relationship="Self.FK_tblVenta_tblCliente" FromRole="tblCliente" ToRole="tblVenta" />
+        </EntityType>
+        <EntityType Name="tblDepartamento">
+          <Key>
+            <PropertyRef Name="idDepartamento" />
+          </Key>
+          <Property Name="idDepartamento" Type="Int32" Nullable="false" />
+          <Property Name="nombreDepartamento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblCiudads" Relationship="Self.FK_tblCiudad_tblDepartamento" FromRole="tblDepartamento" ToRole="tblCiudad" />
+        </EntityType>
+        <EntityType Name="tblDevolucione">
+          <Key>
+            <PropertyRef Name="idDevolucion" />
+          </Key>
+          <Property Name="idDevolucion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idVentaDevolucion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="motivoDevolucion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaDevolucion" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="tblVenta" Relationship="Self.FK_tblDevoluciones_tblVenta" FromRole="tblDevoluciones" ToRole="tblVenta" />
+        </EntityType>
+        <EntityType Name="tblMarca">
+          <Key>
+            <PropertyRef Name="idMarca" />
+          </Key>
+          <Property Name="idMarca" Type="Int32" Nullable="false" />
+          <Property Name="nombreMarca" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblPrendas" Relationship="Self.FK_tblPrenda_tblMarca1" FromRole="tblMarca" ToRole="tblPrenda" />
+        </EntityType>
+        <EntityType Name="tblMetodoPago">
+          <Key>
+            <PropertyRef Name="idMetodoPago" />
+          </Key>
+          <Property Name="idMetodoPago" Type="Int32" Nullable="false" />
+          <Property Name="MetodoPago" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblVentas" Relationship="Self.FK_tblVenta_tblMetodoPago" FromRole="tblMetodoPago" ToRole="tblVenta" />
+        </EntityType>
+        <EntityType Name="tblPrenda">
+          <Key>
+            <PropertyRef Name="idPrenda" />
+          </Key>
+          <Property Name="idPrenda" Type="Int32" Nullable="false" />
+          <Property Name="idMarcaPrenda" Type="Int32" Nullable="false" />
+          <Property Name="idTallaPrenda" Type="Int32" Nullable="false" />
+          <Property Name="precio" Type="Double" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="NombrePrenda" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblMarca" Relationship="Self.FK_tblPrenda_tblMarca1" FromRole="tblPrenda" ToRole="tblMarca" />
+          <NavigationProperty Name="tblTalla" Relationship="Self.FK_tblPrenda_tblTalla" FromRole="tblPrenda" ToRole="tblTalla" />
+          <NavigationProperty Name="tblProveedors" Relationship="Self.FK_tblProveedor_tblPrenda" FromRole="tblPrenda" ToRole="tblProveedor" />
+          <NavigationProperty Name="tblVentas" Relationship="Self.FK_tblVenta_tblPrenda" FromRole="tblPrenda" ToRole="tblVenta" />
+        </EntityType>
+        <EntityType Name="tblProveedor">
+          <Key>
+            <PropertyRef Name="idProveedor" />
+          </Key>
+          <Property Name="idProveedor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreProveedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelefonoProveedor" Type="Int64" Nullable="false" />
+          <Property Name="EmailProveedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DireccionProveedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idPrendaProveedor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblPrenda" Relationship="Self.FK_tblProveedor_tblPrenda" FromRole="tblProveedor" ToRole="tblPrenda" />
+        </EntityType>
+        <EntityType Name="tblSede">
+          <Key>
+            <PropertyRef Name="idSede" />
+          </Key>
+          <Property Name="idSede" Type="Int32" Nullable="false" />
+          <Property Name="NombreSede" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="direccion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idCiudadSede" Type="Int32" Nullable="false" />
+          <Property Name="telefono" Type="Int64" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblCiudad" Relationship="Self.FK_tblSede_tblCiudad" FromRole="tblSede" ToRole="tblCiudad" />
+          <NavigationProperty Name="tblVentas" Relationship="Self.FK_tblVenta_tblSede" FromRole="tblSede" ToRole="tblVenta" />
+        </EntityType>
+        <EntityType Name="tblTalla">
+          <Key>
+            <PropertyRef Name="idTalla" />
+          </Key>
+          <Property Name="idTalla" Type="Int32" Nullable="false" />
+          <Property Name="nombreTalla" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblPrendas" Relationship="Self.FK_tblPrenda_tblTalla" FromRole="tblTalla" ToRole="tblPrenda" />
+        </EntityType>
+        <EntityType Name="tblTipoDocuman">
+          <Key>
+            <PropertyRef Name="idTipoDocumento" />
+          </Key>
+          <Property Name="idTipoDocumento" Type="Int32" Nullable="false" />
+          <Property Name="nombreDocumento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblAdministradors" Relationship="Self.FK_tblAdministrador_tblTipoDocumen" FromRole="tblTipoDocumen" ToRole="tblAdministrador" />
+          <NavigationProperty Name="tblCajeroes" Relationship="Self.FK_tblCajero_tblTipoDocumen" FromRole="tblTipoDocumen" ToRole="tblCajero" />
+          <NavigationProperty Name="tblClientes" Relationship="Self.FK_tblCliente_tblTipoDocumen" FromRole="tblTipoDocumen" ToRole="tblCliente" />
+          <NavigationProperty Name="tblVendedors" Relationship="Self.FK_tblVendedor_tblTipoDocumen" FromRole="tblTipoDocumen" ToRole="tblVendedor" />
+        </EntityType>
+        <EntityType Name="tblVendedor">
+          <Key>
+            <PropertyRef Name="idVendedor" />
+          </Key>
+          <Property Name="idVendedor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreVendedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaNacimientoVendedor" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TelefonoVendedor" Type="Int64" Nullable="false" />
+          <Property Name="EmailVendedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TipoDocumentoVendedor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblTipoDocuman" Relationship="Self.FK_tblVendedor_tblTipoDocumen" FromRole="tblVendedor" ToRole="tblTipoDocumen" />
+          <NavigationProperty Name="tblVentas" Relationship="Self.FK_tblVenta_tblVendedor" FromRole="tblVendedor" ToRole="tblVenta" />
+        </EntityType>
+        <EntityType Name="tblVenta">
+          <Key>
+            <PropertyRef Name="idVenta" />
+          </Key>
+          <Property Name="idVenta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idPrendaVenta" Type="Int32" Nullable="false" />
+          <Property Name="idClienteVenta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idVendedorVenta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idMetodoPagoVenta" Type="Int32" Nullable="false" />
+          <Property Name="idSedeVenta" Type="Int32" Nullable="false" />
+          <Property Name="fechaVenta" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="totalVenta" Type="Double" Nullable="false" />
+          <NavigationProperty Name="tblCliente" Relationship="Self.FK_tblVenta_tblCliente" FromRole="tblVenta" ToRole="tblCliente" />
+          <NavigationProperty Name="tblDevoluciones" Relationship="Self.FK_tblDevoluciones_tblVenta" FromRole="tblVenta" ToRole="tblDevoluciones" />
+          <NavigationProperty Name="tblMetodoPago" Relationship="Self.FK_tblVenta_tblMetodoPago" FromRole="tblVenta" ToRole="tblMetodoPago" />
+          <NavigationProperty Name="tblPrenda" Relationship="Self.FK_tblVenta_tblPrenda" FromRole="tblVenta" ToRole="tblPrenda" />
+          <NavigationProperty Name="tblSede" Relationship="Self.FK_tblVenta_tblSede" FromRole="tblVenta" ToRole="tblSede" />
+          <NavigationProperty Name="tblVendedor" Relationship="Self.FK_tblVenta_tblVendedor" FromRole="tblVenta" ToRole="tblVendedor" />
+        </EntityType>
+        <Association Name="FK_tblAdministrador_tblTipoDocumen">
+          <End Role="tblTipoDocumen" Type="Self.tblTipoDocuman" Multiplicity="1" />
+          <End Role="tblAdministrador" Type="Self.tblAdministrador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTipoDocumen">
+              <PropertyRef Name="idTipoDocumento" />
+            </Principal>
+            <Dependent Role="tblAdministrador">
+              <PropertyRef Name="TipoDocumentoAdministrador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCajero_tblTipoDocumen">
+          <End Role="tblTipoDocumen" Type="Self.tblTipoDocuman" Multiplicity="1" />
+          <End Role="tblCajero" Type="Self.tblCajero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTipoDocumen">
+              <PropertyRef Name="idTipoDocumento" />
+            </Principal>
+            <Dependent Role="tblCajero">
+              <PropertyRef Name="TipoDocumentoCajero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCiudad_tblDepartamento">
+          <End Role="tblDepartamento" Type="Self.tblDepartamento" Multiplicity="1" />
+          <End Role="tblCiudad" Type="Self.tblCiudad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDepartamento">
+              <PropertyRef Name="idDepartamento" />
+            </Principal>
+            <Dependent Role="tblCiudad">
+              <PropertyRef Name="idDepartamentoCiudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSede_tblCiudad">
+          <End Role="tblCiudad" Type="Self.tblCiudad" Multiplicity="1" />
+          <End Role="tblSede" Type="Self.tblSede" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCiudad">
+              <PropertyRef Name="idCiudad" />
+            </Principal>
+            <Dependent Role="tblSede">
+              <PropertyRef Name="idCiudadSede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCliente_tblTipoDocumen">
+          <End Role="tblTipoDocumen" Type="Self.tblTipoDocuman" Multiplicity="1" />
+          <End Role="tblCliente" Type="Self.tblCliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTipoDocumen">
+              <PropertyRef Name="idTipoDocumento" />
+            </Principal>
+            <Dependent Role="tblCliente">
+              <PropertyRef Name="TipoDocumentoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblVenta_tblCliente">
+          <End Role="tblCliente" Type="Self.tblCliente" Multiplicity="1" />
+          <End Role="tblVenta" Type="Self.tblVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="tblVenta">
+              <PropertyRef Name="idClienteVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblDevoluciones_tblVenta">
+          <End Role="tblVenta" Type="Self.tblVenta" Multiplicity="1" />
+          <End Role="tblDevoluciones" Type="Self.tblDevolucione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblVenta">
+              <PropertyRef Name="idVenta" />
+            </Principal>
+            <Dependent Role="tblDevoluciones">
+              <PropertyRef Name="idVentaDevolucion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPrenda_tblMarca1">
+          <End Role="tblMarca" Type="Self.tblMarca" Multiplicity="1" />
+          <End Role="tblPrenda" Type="Self.tblPrenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMarca">
+              <PropertyRef Name="idMarca" />
+            </Principal>
+            <Dependent Role="tblPrenda">
+              <PropertyRef Name="idMarcaPrenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblVenta_tblMetodoPago">
+          <End Role="tblMetodoPago" Type="Self.tblMetodoPago" Multiplicity="1" />
+          <End Role="tblVenta" Type="Self.tblVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMetodoPago">
+              <PropertyRef Name="idMetodoPago" />
+            </Principal>
+            <Dependent Role="tblVenta">
+              <PropertyRef Name="idMetodoPagoVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPrenda_tblTalla">
+          <End Role="tblTalla" Type="Self.tblTalla" Multiplicity="1" />
+          <End Role="tblPrenda" Type="Self.tblPrenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTalla">
+              <PropertyRef Name="idTalla" />
+            </Principal>
+            <Dependent Role="tblPrenda">
+              <PropertyRef Name="idTallaPrenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProveedor_tblPrenda">
+          <End Role="tblPrenda" Type="Self.tblPrenda" Multiplicity="1" />
+          <End Role="tblProveedor" Type="Self.tblProveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPrenda">
+              <PropertyRef Name="idPrenda" />
+            </Principal>
+            <Dependent Role="tblProveedor">
+              <PropertyRef Name="idPrendaProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblVenta_tblPrenda">
+          <End Role="tblPrenda" Type="Self.tblPrenda" Multiplicity="1" />
+          <End Role="tblVenta" Type="Self.tblVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPrenda">
+              <PropertyRef Name="idPrenda" />
+            </Principal>
+            <Dependent Role="tblVenta">
+              <PropertyRef Name="idPrendaVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblVenta_tblSede">
+          <End Role="tblSede" Type="Self.tblSede" Multiplicity="1" />
+          <End Role="tblVenta" Type="Self.tblVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSede">
+              <PropertyRef Name="idSede" />
+            </Principal>
+            <Dependent Role="tblVenta">
+              <PropertyRef Name="idSedeVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblVendedor_tblTipoDocumen">
+          <End Role="tblTipoDocumen" Type="Self.tblTipoDocuman" Multiplicity="1" />
+          <End Role="tblVendedor" Type="Self.tblVendedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTipoDocumen">
+              <PropertyRef Name="idTipoDocumento" />
+            </Principal>
+            <Dependent Role="tblVendedor">
+              <PropertyRef Name="TipoDocumentoVendedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblVenta_tblVendedor">
+          <End Role="tblVendedor" Type="Self.tblVendedor" Multiplicity="1" />
+          <End Role="tblVenta" Type="Self.tblVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblVendedor">
+              <PropertyRef Name="idVendedor" />
+            </Principal>
+            <Dependent Role="tblVenta">
+              <PropertyRef Name="idVendedorVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBVentaRopaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tblAdministradors" EntityType="Self.tblAdministrador" />
+          <EntitySet Name="tblCajeroes" EntityType="Self.tblCajero" />
+          <EntitySet Name="tblCiudads" EntityType="Self.tblCiudad" />
+          <EntitySet Name="tblClientes" EntityType="Self.tblCliente" />
+          <EntitySet Name="tblDepartamentoes" EntityType="Self.tblDepartamento" />
+          <EntitySet Name="tblDevoluciones" EntityType="Self.tblDevolucione" />
+          <EntitySet Name="tblMarcas" EntityType="Self.tblMarca" />
+          <EntitySet Name="tblMetodoPagoes" EntityType="Self.tblMetodoPago" />
+          <EntitySet Name="tblPrendas" EntityType="Self.tblPrenda" />
+          <EntitySet Name="tblProveedors" EntityType="Self.tblProveedor" />
+          <EntitySet Name="tblSedes" EntityType="Self.tblSede" />
+          <EntitySet Name="tblTallas" EntityType="Self.tblTalla" />
+          <EntitySet Name="tblTipoDocumen" EntityType="Self.tblTipoDocuman" />
+          <EntitySet Name="tblVendedors" EntityType="Self.tblVendedor" />
+          <EntitySet Name="tblVentas" EntityType="Self.tblVenta" />
+          <AssociationSet Name="FK_tblAdministrador_tblTipoDocumen" Association="Self.FK_tblAdministrador_tblTipoDocumen">
+            <End Role="tblTipoDocumen" EntitySet="tblTipoDocumen" />
+            <End Role="tblAdministrador" EntitySet="tblAdministradors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCajero_tblTipoDocumen" Association="Self.FK_tblCajero_tblTipoDocumen">
+            <End Role="tblTipoDocumen" EntitySet="tblTipoDocumen" />
+            <End Role="tblCajero" EntitySet="tblCajeroes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCiudad_tblDepartamento" Association="Self.FK_tblCiudad_tblDepartamento">
+            <End Role="tblDepartamento" EntitySet="tblDepartamentoes" />
+            <End Role="tblCiudad" EntitySet="tblCiudads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSede_tblCiudad" Association="Self.FK_tblSede_tblCiudad">
+            <End Role="tblCiudad" EntitySet="tblCiudads" />
+            <End Role="tblSede" EntitySet="tblSedes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCliente_tblTipoDocumen" Association="Self.FK_tblCliente_tblTipoDocumen">
+            <End Role="tblTipoDocumen" EntitySet="tblTipoDocumen" />
+            <End Role="tblCliente" EntitySet="tblClientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblVenta_tblCliente" Association="Self.FK_tblVenta_tblCliente">
+            <End Role="tblCliente" EntitySet="tblClientes" />
+            <End Role="tblVenta" EntitySet="tblVentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblDevoluciones_tblVenta" Association="Self.FK_tblDevoluciones_tblVenta">
+            <End Role="tblVenta" EntitySet="tblVentas" />
+            <End Role="tblDevoluciones" EntitySet="tblDevoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPrenda_tblMarca1" Association="Self.FK_tblPrenda_tblMarca1">
+            <End Role="tblMarca" EntitySet="tblMarcas" />
+            <End Role="tblPrenda" EntitySet="tblPrendas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblVenta_tblMetodoPago" Association="Self.FK_tblVenta_tblMetodoPago">
+            <End Role="tblMetodoPago" EntitySet="tblMetodoPagoes" />
+            <End Role="tblVenta" EntitySet="tblVentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPrenda_tblTalla" Association="Self.FK_tblPrenda_tblTalla">
+            <End Role="tblTalla" EntitySet="tblTallas" />
+            <End Role="tblPrenda" EntitySet="tblPrendas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProveedor_tblPrenda" Association="Self.FK_tblProveedor_tblPrenda">
+            <End Role="tblPrenda" EntitySet="tblPrendas" />
+            <End Role="tblProveedor" EntitySet="tblProveedors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblVenta_tblPrenda" Association="Self.FK_tblVenta_tblPrenda">
+            <End Role="tblPrenda" EntitySet="tblPrendas" />
+            <End Role="tblVenta" EntitySet="tblVentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblVenta_tblSede" Association="Self.FK_tblVenta_tblSede">
+            <End Role="tblSede" EntitySet="tblSedes" />
+            <End Role="tblVenta" EntitySet="tblVentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblVendedor_tblTipoDocumen" Association="Self.FK_tblVendedor_tblTipoDocumen">
+            <End Role="tblTipoDocumen" EntitySet="tblTipoDocumen" />
+            <End Role="tblVendedor" EntitySet="tblVendedors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblVenta_tblVendedor" Association="Self.FK_tblVenta_tblVendedor">
+            <End Role="tblVendedor" EntitySet="tblVendedors" />
+            <End Role="tblVenta" EntitySet="tblVentas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBVentaRopaModelStoreContainer" CdmEntityContainer="DBVentaRopaEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DBVentaRopaModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAdministradors">
+            <EntityTypeMapping TypeName="DBVentaRopaModel.tblAdministrador">
+              <MappingFragment StoreEntitySet="tblAdministrador">
+                <ScalarProperty Name="idAdministrador" ColumnName="idAdministrador" />
+                <ScalarProperty Name="NombreAdministrador" ColumnName="NombreAdministrador" />
+                <ScalarProperty Name="fechaNacimientoAdministrador" ColumnName="fechaNacimientoAdministrador" />
+                <ScalarProperty Name="TelefonoAdministrador" ColumnName="TelefonoAdministrador" />
+                <ScalarProperty Name="EmailAdministrador" ColumnName="EmailAdministrador" />
+                <ScalarProperty Name="TipoDocumentoAdministrador" ColumnName="TipoDocumentoAdministrador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCajeroes">
+            <EntityTypeMapping TypeName="DBVentaRopaModel.tblCajero">
+              <MappingFragment StoreEntitySet="tblCajero">
+                <ScalarProperty Name="idCajero" ColumnName="idCajero" />
+                <ScalarProperty Name="NombreCajero" ColumnName="NombreCajero" />
+                <ScalarProperty Name="fechaCajero" ColumnName="fechaCajero" />
+                <ScalarProperty Name="TelefonoCajero" ColumnName="TelefonoCajero" />
+                <ScalarProperty Name="EmailCajero" ColumnName="EmailCajero" />
+                <ScalarProperty Name="TipoDocumentoCajero" ColumnName="TipoDocumentoCajero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCiudads">
+            <EntityTypeMapping TypeName="DBVentaRopaModel.tblCiudad">
+              <MappingFragment StoreEntitySet="tblCiudad">
+                <ScalarProperty Name="idCiudad" ColumnName="idCiudad" />
+                <ScalarProperty Name="idDepartamentoCiudad" ColumnName="idDepartamentoCiudad" />
+                <ScalarProperty Name="NombreCiudad" ColumnName="NombreCiudad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblClientes">
+            <EntityTypeMapping TypeName="DBVentaRopaModel.tblCliente">
+              <MappingFragment StoreEntitySet="tblCliente">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+                <ScalarProperty Name="fechaNacimientoCliente" ColumnName="fechaNacimientoCliente" />
+                <ScalarProperty Name="TelefonoCliente" ColumnName="TelefonoCliente" />
+                <ScalarProperty Name="EmailCliente" ColumnName="EmailCliente" />
+                <ScalarProperty Name="TipoDocumentoCliente" ColumnName="TipoDocumentoCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDepartamentoes">
+            <EntityTypeMapping TypeName="DBVentaRopaModel.tblDepartamento">
+              <MappingFragment StoreEntitySet="tblDepartamento">
+                <ScalarProperty Name="idDepartamento" ColumnName="idDepartamento" />
+                <ScalarProperty Name="nombreDepartamento" ColumnName="nombreDepartamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDevoluciones">
+            <EntityTypeMapping TypeName="DBVentaRopaModel.tblDevolucione">
+              <MappingFragment StoreEntitySet="tblDevoluciones">
+                <ScalarProperty Name="idDevolucion" ColumnName="idDevolucion" />
+                <ScalarProperty Name="idVentaDevolucion" ColumnName="idVentaDevolucion" />
+                <ScalarProperty Name="motivoDevolucion" ColumnName="motivoDevolucion" />
+                <ScalarProperty Name="fechaDevolucion" ColumnName="fechaDevolucion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMarcas">
+            <EntityTypeMapping TypeName="DBVentaRopaModel.tblMarca">
+              <MappingFragment StoreEntitySet="tblMarca">
+                <ScalarProperty Name="idMarca" ColumnName="idMarca" />
+                <ScalarProperty Name="nombreMarca" ColumnName="nombreMarca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMetodoPagoes">
+            <EntityTypeMapping TypeName="DBVentaRopaModel.tblMetodoPago">
+              <MappingFragment StoreEntitySet="tblMetodoPago">
+                <ScalarProperty Name="idMetodoPago" ColumnName="idMetodoPago" />
+                <ScalarProperty Name="MetodoPago" ColumnName="MetodoPago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPrendas">
+            <EntityTypeMapping TypeName="DBVentaRopaModel.tblPrenda">
+              <MappingFragment StoreEntitySet="tblPrenda">
+                <ScalarProperty Name="idPrenda" ColumnName="idPrenda" />
+                <ScalarProperty Name="idMarcaPrenda" ColumnName="idMarcaPrenda" />
+                <ScalarProperty Name="idTallaPrenda" ColumnName="idTallaPrenda" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="NombrePrenda" ColumnName="NombrePrenda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProveedors">
+            <EntityTypeMapping TypeName="DBVentaRopaModel.tblProveedor">
+              <MappingFragment StoreEntitySet="tblProveedor">
+                <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+                <ScalarProperty Name="NombreProveedor" ColumnName="NombreProveedor" />
+                <ScalarProperty Name="TelefonoProveedor" ColumnName="TelefonoProveedor" />
+                <ScalarProperty Name="EmailProveedor" ColumnName="EmailProveedor" />
+                <ScalarProperty Name="DireccionProveedor" ColumnName="DireccionProveedor" />
+                <ScalarProperty Name="idPrendaProveedor" ColumnName="idPrendaProveedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSedes">
+            <EntityTypeMapping TypeName="DBVentaRopaModel.tblSede">
+              <MappingFragment StoreEntitySet="tblSede">
+                <ScalarProperty Name="idSede" ColumnName="idSede" />
+                <ScalarProperty Name="NombreSede" ColumnName="NombreSede" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="idCiudadSede" ColumnName="idCiudadSede" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTallas">
+            <EntityTypeMapping TypeName="DBVentaRopaModel.tblTalla">
+              <MappingFragment StoreEntitySet="tblTalla">
+                <ScalarProperty Name="idTalla" ColumnName="idTalla" />
+                <ScalarProperty Name="nombreTalla" ColumnName="nombreTalla" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTipoDocumen">
+            <EntityTypeMapping TypeName="DBVentaRopaModel.tblTipoDocuman">
+              <MappingFragment StoreEntitySet="tblTipoDocumen">
+                <ScalarProperty Name="idTipoDocumento" ColumnName="idTipoDocumento" />
+                <ScalarProperty Name="nombreDocumento" ColumnName="nombreDocumento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVendedors">
+            <EntityTypeMapping TypeName="DBVentaRopaModel.tblVendedor">
+              <MappingFragment StoreEntitySet="tblVendedor">
+                <ScalarProperty Name="idVendedor" ColumnName="idVendedor" />
+                <ScalarProperty Name="NombreVendedor" ColumnName="NombreVendedor" />
+                <ScalarProperty Name="fechaNacimientoVendedor" ColumnName="fechaNacimientoVendedor" />
+                <ScalarProperty Name="TelefonoVendedor" ColumnName="TelefonoVendedor" />
+                <ScalarProperty Name="EmailVendedor" ColumnName="EmailVendedor" />
+                <ScalarProperty Name="TipoDocumentoVendedor" ColumnName="TipoDocumentoVendedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVentas">
+            <EntityTypeMapping TypeName="DBVentaRopaModel.tblVenta">
+              <MappingFragment StoreEntitySet="tblVenta">
+                <ScalarProperty Name="idVenta" ColumnName="idVenta" />
+                <ScalarProperty Name="idPrendaVenta" ColumnName="idPrendaVenta" />
+                <ScalarProperty Name="idClienteVenta" ColumnName="idClienteVenta" />
+                <ScalarProperty Name="idVendedorVenta" ColumnName="idVendedorVenta" />
+                <ScalarProperty Name="idMetodoPagoVenta" ColumnName="idMetodoPagoVenta" />
+                <ScalarProperty Name="idSedeVenta" ColumnName="idSedeVenta" />
+                <ScalarProperty Name="fechaVenta" ColumnName="fechaVenta" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="totalVenta" ColumnName="totalVenta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

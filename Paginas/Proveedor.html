@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Venta de ropa</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link href="Estilos/all.min.css" rel="stylesheet" />
+    <!-- Theme style -->
+    <link href="Estilos/adminlte.min.css" rel="stylesheet" />
+    <link href="Estilos/dataTables.min.css" rel="stylesheet" />
+    <link href="Estilos/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: "Cambria";
+            font-size: 18px;
+        }
+
+        header {
+            -webkit-box-shadow: 0px 14px 10px -10px #868686;
+            box-shadow: 0px 14px 10px -10px #868686;
+            position: relative;
+            z-index: 1;
+            background: #ffffff;
+        }
+
+        .navbar-brand {
+            margin-left: 15%;
+        }
+
+        .nav-link {
+            color: #807E7C;
+        }
+
+            .nav-link:hover {
+                color: #EFECE8;
+            }
+    </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <!--------------------------------------------Barra de navegación----------------------------------------------->
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand"><img src="imagenes/Logo.png" width=20% height=20%></a>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Inicio.html">Inicio<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Prendas.html">Prendas</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Usuarios
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="Administrador.html">Administrador</a>
+                            <a class="dropdown-item" href="Vendedor.html">Vendedor</a>
+                            <a class="dropdown-item" href="Cajero.html">Cajero</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="Cliente.html">Clientes</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="Proveedor.html">Proveedores</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Sedes.html">Sedes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Ventas.html">Ventas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Devoluciones.html">Devoluciones</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!------------------------------------------------------fin de barra------------------------------------------------->
+    <div class="container">
+        <!------------------------------------------------------Formulario-------------------------------------------------->
+        <div class="row">
+            <div class="col-2">
+            </div>
+
+            <div class="col-8">
+                <br>
+                <h5 class="col-12 text-center" style="color:#545454; font-family: Cambria; font-weight: bold;">PROVEEDORES</h5>
+                <hr class="mb-4">
+                <form id="RegistroProveedor">
+                    <div class="input-group">
+                        <div class="form-group col-sm-12 col-md-12 col-lg-6">
+                            <label for="NitProveedor">Nit:</label>
+                            <input type="text" class="form-control" id="NitProveedor" name="NitProveedor">
+                        </div>
+
+                        <div class="form-group col-sm-12 col-md-12 col-lg-6">
+                            <label for="NombreProveedor">Nombre:</label>
+                            <input type="text" class="form-control" id="NombreProveedor" name="NombreProveedor">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="form-group col-sm-12 col-md-12 col-lg-6">
+                            <label for="TelefonoProveedor">Teléfono:</label>
+                            <input type="number" class="form-control" id="TelefonoProveedor" name="TelefonoProveedor">
+                        </div>
+
+                        <div class="form-group col-sm-12 col-md-12 col-lg-6">
+                            <label for="EmailProveedor">Correo electrónico:</label>
+                            <input type="email" class="form-control" id="EmailProveedor" name="EmailProveedor">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="form-group col-sm-12 col-md-12 col-lg-6">
+                            <label for="DireccionProveedor">Dirección:</label>
+                            <input type="text" class="form-control" id="DireccionProveedor" name="DireccionProveedor">
+                        </div>
+
+                        <div class="form-group col-sm-12 col-md-12 col-lg-6">
+                            <label for="PrendaProveedor">Prenda:</label>
+                            <select class="form-control col-12" id="PrendaProveedor" name="PrendaProveedor">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="form-group col-sm-12 col-md-12 col-lg-4">
+                            <button id="btnInsertarProveedor" type="button" class="btn btn-secondary btn-block" style="margin-top: 20px;">Registrar</button>
+                        </div>
+
+                        <div class="form-group col-sm-12 col-md-12 col-lg-4">
+                            <button id="btnEliminarProveedor" type="button" class="btn btn-secondary btn-block" style="margin-top: 20px;">Eliminar</button>
+                        </div>
+
+                        <div class="form-group col-sm-12 col-md-12 col-lg-4">
+                            <button id="btnActualizarProveedor" type="button" class="btn btn-secondary btn-block" style="margin-top: 20px;">Actualizar</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-12 col-md-12 col-lg-12">
+                        <button id="btnLimpiarProveedor" type="button" class="btn btn-outline-secondary btn-block" style="">Limpiar Campos</button>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="col-2">
+            </div>
+        </div>
+        <!---------------------------------------------------Fin formulario---------------------------------------------->
+
+        <br>
+        <hr class="mb-4">
+        <h5 class="col-12 text-center" style="color:#545454; font-family: Cambria; font-weight: bold;">DEVOLUCIONES REALIZADAS</h5>
+
+        <!--------------------------------------------------------Tabla---------------------------------------------------->
+        <div class="row">
+            <div class="col-12">
+                <table id="tblProveedores" class="table table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th>NIT</th>
+                            <th>Nombre</th>
+                            <th>Teléfono</th>
+                            <th>Email</th>
+                            <th>Dirección</th>
+                            <th>Código prenda</th>
+                            <th>Prenda</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <!------------------------------------------------------Fin tabla-------------------------------------------------->
+
+    </div>
+
+    <!-------------------------------------------------------Scripts-------------------------------------------------->
+    <script src="../Scripts/jquery.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/jquery.dataTables.min.js"></script>
+    <script src="../Scripts/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="Scripts/Proveedor.js"></script>
+    <script src="Scripts/Grids.js"></script>
+</body>
+</html>

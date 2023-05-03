@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3fe20ad228cb41b7ad2d6dacabd0d468" Name="Diagram1">
+        <EntityTypeShape EntityType="DBVentaRopaModel.sysdiagram" Width="1.5" PointX="5.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentaRopaModel.tblAdministrador" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentaRopaModel.tblCajero" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentaRopaModel.tblCiudad" Width="1.5" PointX="0.75" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentaRopaModel.tblCliente" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentaRopaModel.tblDepartamento" Width="1.5" PointX="1.5" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentaRopaModel.tblDevolucione" Width="1.5" PointX="7.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentaRopaModel.tblMarca" Width="1.5" PointX="0.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentaRopaModel.tblMetodoPago" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentaRopaModel.tblPrenda" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentaRopaModel.tblProveedor" Width="1.5" PointX="5.25" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentaRopaModel.tblSede" Width="1.5" PointX="3" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentaRopaModel.tblTalla" Width="1.5" PointX="0.75" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentaRopaModel.tblTipoDocuman" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentaRopaModel.tblVendedor" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBVentaRopaModel.tblVenta" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <AssociationConnector Association="DBVentaRopaModel.FK_tblAdministrador_tblTipoDocumen" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentaRopaModel.FK_tblCajero_tblTipoDocumen" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentaRopaModel.FK_tblCiudad_tblDepartamento" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentaRopaModel.FK_tblSede_tblCiudad" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentaRopaModel.FK_tblCliente_tblTipoDocumen" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentaRopaModel.FK_tblVenta_tblCliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentaRopaModel.FK_tblDevoluciones_tblVenta" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentaRopaModel.FK_tblPrenda_tblMarca1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentaRopaModel.FK_tblVenta_tblMetodoPago" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentaRopaModel.FK_tblPrenda_tblTalla" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentaRopaModel.FK_tblProveedor_tblPrenda" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentaRopaModel.FK_tblVenta_tblPrenda" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentaRopaModel.FK_tblVenta_tblSede" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentaRopaModel.FK_tblVendedor_tblTipoDocumen" ManuallyRouted="false" />
+        <AssociationConnector Association="DBVentaRopaModel.FK_tblVenta_tblVendedor" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
